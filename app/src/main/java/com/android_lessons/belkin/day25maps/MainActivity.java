@@ -1,9 +1,12 @@
 package com.android_lessons.belkin.day25maps;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -35,5 +38,12 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClick(View view) {
+        String geoUriString = "google.streetview:cbll=59.939448,30.328264&cbp=1,99.56,,1,2.0&mz=19";
+        Uri geoUri = Uri.parse(geoUriString);
+        Intent map = new Intent(Intent.ACTION_VIEW, geoUri);
+        startActivity(map);
     }
 }
